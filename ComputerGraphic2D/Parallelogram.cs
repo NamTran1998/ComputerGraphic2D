@@ -10,24 +10,61 @@ namespace ComputerGraphic2D
     class Parallelogram: Shape
     {
         private static int nParall = 0;
-        public Point TopRight, BottomLeft;
+        public Point[] pointArray = new Point[4];
 
-        public Parallelogram(Point topLeft, Point topRight, Point bottomRight)
+
+        public Parallelogram(Point start, Point end)
         {
-            SetTopLeftAndBottomRight(topLeft, bottomRight);
-            TopRight = topRight;
-            BottomLeft.X = 2 * Center.X - TopRight.X;
-            BottomLeft.Y = 2 * Center.X - TopRight.Y;
-            CalculateCenter();
+            // Đường chéo góc hướng xuống
+            if ((start.X - end.X) * (start.Y - end.Y) > 0) 
+            {
+                if(start.X > end.X) // start.X luôn nhỏ hơn end.X
+                {
+                    Point temp = start;
+                    start = end;
+                    end = temp;
+                }
+
+                // SetTopLeftAndBottomRight
+                TopLeft.X = start.X; TopLeft.Y = start.Y;
+                BottomRight.X = end.X; BottomRight.Y = end.Y;
+
+                pointArray[0] = start;
+                pointArray[2] = end;
+                Center.X = (pointArray[0].X + pointArray[2].X) / 2;
+                Center.Y = (pointArray[0].Y + pointArray[2].Y) / 2;
+                pointArray[1].X = pointArray[0].X + 2 * (pointArray[2].X - pointArray[0].X) / 3;
+                pointArray[1].Y = pointArray[0].Y;
+                pointArray[3].X = 2 * Center.X - pointArray[1].X;
+                pointArray[3].Y = pointArray[2].Y;
+            }
+            // Đường chéo hướng lên
+            else
+            {
+                if(start.X > end.X) // start.X luôn nhỏ hơn end.X
+                {
+                    Point temp = start;
+                    start = end;
+                    end = temp;
+                }
+
+                // SetTopLeftAndBottomRight
+                TopLeft.X = start.X; TopLeft.Y = end.Y;
+                BottomRight.X = end.X; BottomRight.Y = start.Y;
+
+                pointArray[3] = start;
+                pointArray[1] = end;
+                Center.X = (pointArray[1].X + pointArray[3].X) / 2;
+                Center.Y = (pointArray[1].Y + pointArray[3].Y) / 2;
+                pointArray[0].X = pointArray[1].X - 2 * (pointArray[1].X - pointArray[3].X) / 3;
+                pointArray[0].Y = pointArray[1].Y;
+                pointArray[2].X = 2 * Center.X - pointArray[0].X;
+                pointArray[2].Y = pointArray[3].Y;
+            }
         }
 
         public override void Draw(Bitmap bitmap)
         {
-            Point[] pointArray = new Point[4];
-            pointArray[0] = TopLeft;
-            pointArray[1] = TopRight;
-            pointArray[2] = BottomRight;
-            pointArray[3] = BottomLeft;
             Graphics.FromImage(bitmap).DrawPolygon(new Pen(Color.Black, 1),pointArray);
         }
         public override void RegisterAnObject()

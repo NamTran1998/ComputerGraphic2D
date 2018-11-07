@@ -19,7 +19,16 @@ namespace ComputerGraphic2D
 
         public override void Draw(Bitmap bitmap)
         {
-            Graphics.FromImage(bitmap).DrawRectangle(new Pen(Color.Black, 1), TopLeft.X, TopLeft.Y, BottomRight.X - TopLeft.X, BottomRight.Y - TopLeft.Y);
+            if (bFill)
+                Fill(bitmap);
+            Pen pen = new Pen(ForeColor, width);
+            Graphics.FromImage(bitmap).DrawRectangle(pen, TopLeft.X, TopLeft.Y, BottomRight.X - TopLeft.X, BottomRight.Y - TopLeft.Y);
+        }
+
+        public void Fill(Bitmap bitmap)
+        {
+            SolidBrush brush = new SolidBrush(BackColor);
+            Graphics.FromImage(bitmap).FillRectangle(brush, TopLeft.X, TopLeft.Y, BottomRight.X - TopLeft.X, BottomRight.Y - TopLeft.Y);
         }
 
         public override void RegisterAnObject()

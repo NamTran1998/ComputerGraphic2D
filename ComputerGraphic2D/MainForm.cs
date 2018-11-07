@@ -18,7 +18,7 @@ namespace ComputerGraphic2D
         Point start;
         Point end;
         BindingList<Shape> shapes;
-        Shape selectedShape = null;
+        List<Shape> selectedShape = null;
         string selectedTool = "Line";
         SelectIndicator selectIndicator = new SelectIndicator();
 
@@ -39,6 +39,7 @@ namespace ComputerGraphic2D
         {
             InitializeComponent();
             shapes = new BindingList<Shape>();
+            selectedShape = new List<Shape>();
             listLayers.DataSource = shapes; 
             viewport = new Bitmap(pictureBox1.Width, pictureBox1.Height);
         }
@@ -100,6 +101,10 @@ namespace ComputerGraphic2D
                         Circle circle = new Circle(start, end);
                         addShapesToViewPort(circle);
                         break;
+                    case "Parallelogram":
+                        Parallelogram parallelogram = new Parallelogram(start, end);
+                        addShapesToViewPort(parallelogram);
+                        break;
                     case "Text":
                         TextBox contentTextbox = new TextBox();
                         contentTextbox.Location = new Point(start.X + pictureBox1.Location.X, start.Y + pictureBox1.Location.Y);
@@ -147,6 +152,10 @@ namespace ComputerGraphic2D
                         Rectangle rectangle = getRectangle(start, end);
                         drawShapeOnViewPort(rectangle, viewport_tmp);
                         break;
+                    case "Parallelogram":
+                        Parallelogram parallelogram = new Parallelogram(start, end);
+                        drawShapeOnViewPort(parallelogram, viewport_tmp);
+                        break;
                     case "Circle":
                         Circle circle = new Circle(start, end);
                         drawShapeOnViewPort(circle, viewport_tmp);
@@ -178,6 +187,31 @@ namespace ComputerGraphic2D
         private void btnText_Click(object sender, EventArgs e)
         {
             selectedTool = "Text";
+        }
+
+        private void listLayers_SelectedValueChanged(object sender, EventArgs e)
+        {
+            selectedShape.Clear();
+            for(int x = 0; x < shapes.Count; x++)
+            {
+                if (listLayers.GetSelected(x))
+                    selectedShape.Add(shapes[x]);
+            }
+
+            if (selectedShape.Count > 0)
+            {
+                viewport_tmp = (Bitmap)viewport.Clone();
+                selectIndicator.Select(selectedShape.ToArray());
+                selectIndicator.Show(viewport_tmp);
+                pictureBox1.Image = viewport_tmp;
+            }
+            else
+                pictureBox1.Image = viewport;
+        }
+
+        private void btnParallelogram_Click(object sender, EventArgs e)
+        {
+            selectedTool = "Parallelogram";
         }
     }
 }
