@@ -28,18 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.colorPicker1 = new ComputerGraphic2D.ForeColorPicker();
             this.btnSelect = new System.Windows.Forms.Button();
             this.btnCircle = new System.Windows.Forms.Button();
             this.btnRect = new System.Windows.Forms.Button();
             this.btnLine = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnParallelogram = new System.Windows.Forms.Button();
             this.btnText = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.listLayers = new System.Windows.Forms.ListBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.colorPicker1 = new ComputerGraphic2D.ForeColorPicker();
-            this.btnParallelogram = new System.Windows.Forms.Button();
+            this.btnEllipse = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.colorPicker1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -58,6 +60,8 @@
             // 
             // colorPicker1
             // 
+            this.colorPicker1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.colorPicker1.Image = ((System.Drawing.Image)(resources.GetObject("colorPicker1.Image")));
             this.colorPicker1.Location = new System.Drawing.Point(691, 25);
             this.colorPicker1.Name = "colorPicker1";
             this.colorPicker1.Size = new System.Drawing.Size(30, 30);
@@ -106,6 +110,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btnEllipse);
             this.panel2.Controls.Add(this.btnParallelogram);
             this.panel2.Controls.Add(this.btnSelect);
             this.panel2.Controls.Add(this.btnLine);
@@ -117,6 +122,16 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(102, 360);
             this.panel2.TabIndex = 1;
+            // 
+            // btnParallelogram
+            // 
+            this.btnParallelogram.Location = new System.Drawing.Point(12, 123);
+            this.btnParallelogram.Name = "btnParallelogram";
+            this.btnParallelogram.Size = new System.Drawing.Size(75, 23);
+            this.btnParallelogram.TabIndex = 4;
+            this.btnParallelogram.Text = "Parallelogram";
+            this.btnParallelogram.UseVisualStyleBackColor = true;
+            this.btnParallelogram.Click += new System.EventHandler(this.btnParallelogram_Click);
             // 
             // btnText
             // 
@@ -160,24 +175,15 @@
             this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
             this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
             // 
-            // colorPicker1
+            // btnEllipse
             // 
-            this.colorPicker1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.colorPicker1.Location = new System.Drawing.Point(691, 25);
-            this.colorPicker1.Name = "colorPicker1";
-            this.colorPicker1.Size = new System.Drawing.Size(30, 30);
-            this.colorPicker1.TabIndex = 0;
-            this.colorPicker1.TabStop = false;
-            // 
-            // btnParallelogram
-            // 
-            this.btnParallelogram.Location = new System.Drawing.Point(12, 123);
-            this.btnParallelogram.Name = "btnParallelogram";
-            this.btnParallelogram.Size = new System.Drawing.Size(75, 23);
-            this.btnParallelogram.TabIndex = 4;
-            this.btnParallelogram.Text = "Parallelogram";
-            this.btnParallelogram.UseVisualStyleBackColor = true;
-            this.btnParallelogram.Click += new System.EventHandler(this.btnParallelogram_Click);
+            this.btnEllipse.Location = new System.Drawing.Point(13, 153);
+            this.btnEllipse.Name = "btnEllipse";
+            this.btnEllipse.Size = new System.Drawing.Size(75, 23);
+            this.btnEllipse.TabIndex = 5;
+            this.btnEllipse.Text = "Ellipse";
+            this.btnEllipse.UseVisualStyleBackColor = true;
+            this.btnEllipse.Click += new System.EventHandler(this.btnEllipse_Click);
             // 
             // MainForm
             // 
@@ -212,6 +218,7 @@
         private System.Windows.Forms.Button btnText;
         private ForeColorPicker colorPicker1;
         private System.Windows.Forms.Button btnParallelogram;
+        private System.Windows.Forms.Button btnEllipse;
     }
 }
 

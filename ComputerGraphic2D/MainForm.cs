@@ -112,6 +112,10 @@ namespace ComputerGraphic2D
                         Circle circle = new Circle(start, end);
                         addShapesToViewPort(circle);
                         break;
+                    case "Ellipse":
+                        Ellipse ellipse = new Ellipse(start, end);
+                        addShapesToViewPort(ellipse);
+                        break;
                     case "Parallelogram":
                         Parallelogram parallelogram = new Parallelogram(start, end);
                         addShapesToViewPort(parallelogram);
@@ -171,6 +175,10 @@ namespace ComputerGraphic2D
                         Circle circle = new Circle(start, end);
                         drawShapeOnViewPort(circle, viewport_tmp);
                         break;
+                    case "Ellipse":
+                        Ellipse ellipse = new Ellipse(start, end);
+                        drawShapeOnViewPort(ellipse, viewport_tmp);
+                        break;
                 }
             }
         }
@@ -223,6 +231,11 @@ namespace ComputerGraphic2D
         private void btnParallelogram_Click(object sender, EventArgs e)
         {
             selectedTool = "Parallelogram";
+        }
+
+        private void btnEllipse_Click(object sender, EventArgs e)
+        {
+            selectedTool = "Ellipse";
         }
     }
 }
