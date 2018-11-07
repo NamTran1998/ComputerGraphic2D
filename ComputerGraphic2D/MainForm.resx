@@ -117,4 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="foreColorPicker1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAAFRJREFUSEvFyLENACAMwLD+/3ThAK+ESF4yt/2Es8BZ4CxwFjgLnAXOAmeBs8BZ
+        4CxwFjgLnAXOAmeBs8BZ4CxwFjgLnAXOAmeBs8BZ4CxwFjgfmz0wyICqrXLigwAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="backColorPicker1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAAC1JREFUSEvtzTEBACAABCH7l35b4OBRgLNHiplippgpZoqZYqaYKWaKmd/i7QKc
+        uQLDRbfeowAAAABJRU5ErkJggg==
+</value>
+  </data>
 </root>

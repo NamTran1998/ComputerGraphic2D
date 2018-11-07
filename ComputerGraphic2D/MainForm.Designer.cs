@@ -28,20 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.chkFill = new System.Windows.Forms.CheckBox();
+            this.foreColorPicker1 = new ComputerGraphic2D.ForeColorPicker();
+            this.backColorPicker1 = new ComputerGraphic2D.BackColorPicker();
             this.btnSelect = new System.Windows.Forms.Button();
             this.btnCircle = new System.Windows.Forms.Button();
             this.btnRect = new System.Windows.Forms.Button();
             this.btnLine = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnParallelogram = new System.Windows.Forms.Button();
             this.btnText = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.listLayers = new System.Windows.Forms.ListBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.colorPicker1 = new ComputerGraphic2D.ForeColorPicker();
-            this.btnParallelogram = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.colorPicker1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.foreColorPicker1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.backColorPicker1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -49,20 +53,44 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.colorPicker1);
+            this.panel1.Controls.Add(this.chkFill);
+            this.panel1.Controls.Add(this.foreColorPicker1);
+            this.panel1.Controls.Add(this.backColorPicker1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(761, 75);
             this.panel1.TabIndex = 0;
             // 
-            // colorPicker1
+            // chkFill
             // 
-            this.colorPicker1.Location = new System.Drawing.Point(691, 25);
-            this.colorPicker1.Name = "colorPicker1";
-            this.colorPicker1.Size = new System.Drawing.Size(30, 30);
-            this.colorPicker1.TabIndex = 0;
-            this.colorPicker1.TabStop = false;
+            this.chkFill.AutoSize = true;
+            this.chkFill.Location = new System.Drawing.Point(569, 38);
+            this.chkFill.Name = "chkFill";
+            this.chkFill.Size = new System.Drawing.Size(38, 17);
+            this.chkFill.TabIndex = 3;
+            this.chkFill.Text = "Fill";
+            this.chkFill.UseVisualStyleBackColor = true;
+            this.chkFill.CheckedChanged += new System.EventHandler(this.chkFill_CheckedChanged);
+            // 
+            // foreColorPicker1
+            // 
+            this.foreColorPicker1.Image = ((System.Drawing.Image)(resources.GetObject("foreColorPicker1.Image")));
+            this.foreColorPicker1.Location = new System.Drawing.Point(684, 25);
+            this.foreColorPicker1.Name = "foreColorPicker1";
+            this.foreColorPicker1.Size = new System.Drawing.Size(30, 30);
+            this.foreColorPicker1.TabIndex = 2;
+            this.foreColorPicker1.TabStop = false;
+            // 
+            // backColorPicker1
+            // 
+            this.backColorPicker1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.backColorPicker1.Image = ((System.Drawing.Image)(resources.GetObject("backColorPicker1.Image")));
+            this.backColorPicker1.Location = new System.Drawing.Point(637, 25);
+            this.backColorPicker1.Name = "backColorPicker1";
+            this.backColorPicker1.Size = new System.Drawing.Size(30, 30);
+            this.backColorPicker1.TabIndex = 1;
+            this.backColorPicker1.TabStop = false;
             // 
             // btnSelect
             // 
@@ -118,6 +146,16 @@
             this.panel2.Size = new System.Drawing.Size(102, 360);
             this.panel2.TabIndex = 1;
             // 
+            // btnParallelogram
+            // 
+            this.btnParallelogram.Location = new System.Drawing.Point(12, 123);
+            this.btnParallelogram.Name = "btnParallelogram";
+            this.btnParallelogram.Size = new System.Drawing.Size(75, 23);
+            this.btnParallelogram.TabIndex = 4;
+            this.btnParallelogram.Text = "Parallelogram";
+            this.btnParallelogram.UseVisualStyleBackColor = true;
+            this.btnParallelogram.Click += new System.EventHandler(this.btnParallelogram_Click);
+            // 
             // btnText
             // 
             this.btnText.Location = new System.Drawing.Point(12, 93);
@@ -160,25 +198,6 @@
             this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
             this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
             // 
-            // colorPicker1
-            // 
-            this.colorPicker1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.colorPicker1.Location = new System.Drawing.Point(691, 25);
-            this.colorPicker1.Name = "colorPicker1";
-            this.colorPicker1.Size = new System.Drawing.Size(30, 30);
-            this.colorPicker1.TabIndex = 0;
-            this.colorPicker1.TabStop = false;
-            // 
-            // btnParallelogram
-            // 
-            this.btnParallelogram.Location = new System.Drawing.Point(12, 123);
-            this.btnParallelogram.Name = "btnParallelogram";
-            this.btnParallelogram.Size = new System.Drawing.Size(75, 23);
-            this.btnParallelogram.TabIndex = 4;
-            this.btnParallelogram.Text = "Parallelogram";
-            this.btnParallelogram.UseVisualStyleBackColor = true;
-            this.btnParallelogram.Click += new System.EventHandler(this.btnParallelogram_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -190,7 +209,9 @@
             this.Name = "MainForm";
             this.Text = "2D Drawing";
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.colorPicker1)).EndInit();
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.foreColorPicker1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.backColorPicker1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -210,8 +231,10 @@
         private System.Windows.Forms.Button btnCircle;
         private System.Windows.Forms.Button btnSelect;
         private System.Windows.Forms.Button btnText;
-        private ForeColorPicker colorPicker1;
         private System.Windows.Forms.Button btnParallelogram;
+        private BackColorPicker backColorPicker1;
+        private ForeColorPicker foreColorPicker1;
+        private System.Windows.Forms.CheckBox chkFill;
     }
 }
 

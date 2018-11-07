@@ -47,6 +47,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Circle.cs" />
+    <Compile Include="BackColorPicker.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ForeColorPicker.cs">
       <SubType>Component</SubType>
     </Compile>
