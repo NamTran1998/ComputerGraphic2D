@@ -119,8 +119,10 @@
             this.listLayers.FormattingEnabled = true;
             this.listLayers.Location = new System.Drawing.Point(0, 0);
             this.listLayers.Name = "listLayers";
+            this.listLayers.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.listLayers.Size = new System.Drawing.Size(168, 360);
             this.listLayers.TabIndex = 0;
+            this.listLayers.SelectedValueChanged += new System.EventHandler(this.listLayers_SelectedValueChanged);
             // 
             // pictureBox1
             // 

@@ -18,7 +18,7 @@ namespace ComputerGraphic2D
         Point start;
         Point end;
         BindingList<Shape> shapes;
-        Shape selectedShape = null;
+        List<Shape> selectedShape = null;
         string selectedTool = "Line";
         SelectIndicator selectIndicator = new SelectIndicator();
 
@@ -39,6 +39,7 @@ namespace ComputerGraphic2D
         {
             InitializeComponent();
             shapes = new BindingList<Shape>();
+            selectedShape = new List<Shape>();
             listLayers.DataSource = shapes; 
             viewport = new Bitmap(pictureBox1.Width, pictureBox1.Height);
         }
@@ -178,6 +179,26 @@ namespace ComputerGraphic2D
         private void btnText_Click(object sender, EventArgs e)
         {
             selectedTool = "Text";
+        }
+
+        private void listLayers_SelectedValueChanged(object sender, EventArgs e)
+        {
+            selectedShape.Clear();
+            for(int x = 0; x < shapes.Count; x++)
+            {
+                if (listLayers.GetSelected(x))
+                    selectedShape.Add(shapes[x]);
+            }
+
+            if (selectedShape.Count > 0)
+            {
+                viewport_tmp = (Bitmap)viewport.Clone();
+                selectIndicator.Select(selectedShape.ToArray());
+                selectIndicator.Show(viewport_tmp);
+                pictureBox1.Image = viewport_tmp;
+            }
+            else
+                pictureBox1.Image = viewport;
         }
     }
 }

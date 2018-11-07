@@ -34,12 +34,16 @@ namespace ComputerGraphic2D
 
         public override void Draw(Bitmap bitmap)
         {
-            Graphics.FromImage(bitmap).DrawEllipse(new Pen(Color.Black, 1), TopLeft.X, TopLeft.Y, Radius * 2, Radius * 2);
+            if (bFill)
+                Fill(bitmap);
+            Pen pen = new Pen(ForeColor, width);
+            Graphics.FromImage(bitmap).DrawEllipse(pen, TopLeft.X, TopLeft.Y, Radius * 2, Radius * 2);
         }
 
         public void Fill(Bitmap bitmap)
         {
-            Graphics.FromImage(bitmap).FillEllipse(Brushes.White, TopLeft.X, TopLeft.Y, Radius * 2, Radius * 2);
+            SolidBrush brush = new SolidBrush(BackColor);
+            Graphics.FromImage(bitmap).FillEllipse(brush, TopLeft.X, TopLeft.Y, Radius * 2, Radius * 2);
         }
 
         public override void RegisterAnObject()
