@@ -8,12 +8,12 @@ using System.Drawing;
 
 namespace ComputerGraphic2D
 {
-    class ForeColorPicker : PictureBox
+    class BackColorPicker : PictureBox
     {
         public Color pickedColor;
         public List<Shape> bindedShape = new List<Shape>();
 
-        public ForeColorPicker(Color color)
+        public BackColorPicker(Color color)
         {
             Size = new Size(30, 30);
             pickedColor = color;
@@ -21,18 +21,12 @@ namespace ComputerGraphic2D
             this.Click += ColorPicker_Click;
         }
 
-        public ForeColorPicker()
+        public BackColorPicker()
         {
             Size = new Size(30, 30);
-            pickedColor = Color.Black;
+            pickedColor = Color.White;
             viewColor();
             this.Click += ColorPicker_Click;
-        }
-
-        public void changeColor(Color color)
-        {
-            pickedColor = color;
-            viewColor();
         }
 
         private void viewColor()
@@ -41,6 +35,12 @@ namespace ComputerGraphic2D
             SolidBrush brush = new SolidBrush(pickedColor);
             Graphics.FromImage(bitmap).FillRectangle(brush, 0, 0, 30, 30);
             this.Image = bitmap;
+        }
+
+        public void changeColor(Color color)
+        {
+            pickedColor = color;
+            viewColor();
         }
 
         private void ColorPicker_Click(object sender, EventArgs e)
@@ -52,7 +52,7 @@ namespace ComputerGraphic2D
                 viewColor();
                 if (bindedShape.Count > 0)
                     for(int i=0;i<bindedShape.Count;i++)
-                        bindedShape[i].ForeColor = pickedColor;
+                        bindedShape[i].BackColor = pickedColor;
                 ((MainForm)this.Parent.Parent).UpdateViewport();
             }
         }

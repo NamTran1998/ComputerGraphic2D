@@ -40,7 +40,8 @@ namespace ComputerGraphic2D
             InitializeComponent();
             shapes = new BindingList<Shape>();
             selectedShape = new List<Shape>();
-            colorPicker1.bindedShape = selectedShape;
+            foreColorPicker1.bindedShape = selectedShape;
+            backColorPicker1.bindedShape = selectedShape;
             listLayers.DataSource = shapes; 
             viewport = new Bitmap(pictureBox1.Width, pictureBox1.Height);
         }
@@ -223,6 +224,10 @@ namespace ComputerGraphic2D
                 selectIndicator.Select(selectedShape.ToArray());
                 selectIndicator.Show(viewport_tmp);
                 pictureBox1.Image = viewport_tmp;
+
+                chkFill.Checked = selectedShape[0].bFill;
+                foreColorPicker1.changeColor(selectedShape[0].ForeColor);
+                backColorPicker1.changeColor(selectedShape[0].BackColor);
             }
             else
                 pictureBox1.Image = viewport;
@@ -236,6 +241,14 @@ namespace ComputerGraphic2D
         private void btnEllipse_Click(object sender, EventArgs e)
         {
             selectedTool = "Ellipse";
+        private void chkFill_CheckedChanged(object sender, EventArgs e)
+        {
+            backColorPicker1.Enabled = chkFill.Checked;
+            foreach(Shape shape in selectedShape)
+            {
+                shape.bFill = chkFill.Checked;
+                UpdateViewport();
+            }
         }
     }
 }
