@@ -8,24 +8,25 @@ using System.Drawing;
 
 namespace ComputerGraphic2D
 {
-    class ColorPicker : PictureBox
+    class ForeColorPicker : PictureBox
     {
         public Color pickedColor;
+        public List<Shape> bindedShape = new List<Shape>();
 
-        public ColorPicker(Color color)
+        public ForeColorPicker(Color color)
         {
             Size = new Size(30, 30);
             pickedColor = color;
-            this.Click += ColorPicker_Click;
             viewColor();
+            this.Click += ColorPicker_Click;
         }
 
-        public ColorPicker()
+        public ForeColorPicker()
         {
             Size = new Size(30, 30);
             pickedColor = Color.White;
-            this.Click += ColorPicker_Click;
             viewColor();
+            this.Click += ColorPicker_Click;
         }
 
         private void viewColor()
@@ -33,12 +34,21 @@ namespace ComputerGraphic2D
             Bitmap bitmap = new Bitmap(30, 30);
             SolidBrush brush = new SolidBrush(pickedColor);
             Graphics.FromImage(bitmap).FillRectangle(brush, 0, 0, 30, 30);
+            this.Image = bitmap;
         }
 
         private void ColorPicker_Click(object sender, EventArgs e)
         {
             ColorDialog colorDialog = new ColorDialog();
-            colorDialog.ShowDialog();
+            if(colorDialog.ShowDialog() == DialogResult.OK)
+            {
+                pickedColor = colorDialog.Color;
+                viewColor();
+                if (bindedShape.Count > 0)
+                    for(int i=0;i<bindedShape.Count;i++)
+                        bindedShape[i].ForeColor = pickedColor;
+                ((MainForm)this.Parent.Parent).UpdateViewport();
+            }
         }
     }
 }

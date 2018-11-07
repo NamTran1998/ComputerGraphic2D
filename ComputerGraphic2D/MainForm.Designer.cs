@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.colorPicker1 = new ComputerGraphic2D.ColorPicker();
             this.btnSelect = new System.Windows.Forms.Button();
             this.btnCircle = new System.Windows.Forms.Button();
             this.btnRect = new System.Windows.Forms.Button();
@@ -39,6 +38,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.listLayers = new System.Windows.Forms.ListBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.colorPicker1 = new ComputerGraphic2D.ForeColorPicker();
             this.btnParallelogram = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.colorPicker1)).BeginInit();
@@ -160,6 +160,15 @@
             this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
             this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
             // 
+            // colorPicker1
+            // 
+            this.colorPicker1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.colorPicker1.Location = new System.Drawing.Point(691, 25);
+            this.colorPicker1.Name = "colorPicker1";
+            this.colorPicker1.Size = new System.Drawing.Size(30, 30);
+            this.colorPicker1.TabIndex = 0;
+            this.colorPicker1.TabStop = false;
+            // 
             // btnParallelogram
             // 
             this.btnParallelogram.Location = new System.Drawing.Point(12, 123);
@@ -201,7 +210,7 @@
         private System.Windows.Forms.Button btnCircle;
         private System.Windows.Forms.Button btnSelect;
         private System.Windows.Forms.Button btnText;
-        private ColorPicker colorPicker1;
+        private ForeColorPicker colorPicker1;
         private System.Windows.Forms.Button btnParallelogram;
     }
 }

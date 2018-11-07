@@ -65,7 +65,8 @@ namespace ComputerGraphic2D
 
         public override void Draw(Bitmap bitmap)
         {
-            Graphics.FromImage(bitmap).DrawPolygon(new Pen(Color.Black, 1),pointArray);
+            Pen pen = new Pen(ForeColor, 1);
+            Graphics.FromImage(bitmap).DrawPolygon(pen, pointArray);
         }
         public override void RegisterAnObject()
         {

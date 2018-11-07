@@ -40,6 +40,7 @@ namespace ComputerGraphic2D
             InitializeComponent();
             shapes = new BindingList<Shape>();
             selectedShape = new List<Shape>();
+            colorPicker1.bindedShape = selectedShape;
             listLayers.DataSource = shapes; 
             viewport = new Bitmap(pictureBox1.Width, pictureBox1.Height);
         }
@@ -47,6 +48,14 @@ namespace ComputerGraphic2D
         private Rectangle getRectangle(Point start, Point end)
         {
             return new Rectangle(start, end);
+        }
+
+        public void UpdateViewport()
+        {
+            viewport = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+            for (int i = 0; i < shapes.Count; i++)
+                shapes[i].Draw(viewport);
+            pictureBox1.Image = viewport;
         }
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
@@ -63,6 +72,8 @@ namespace ComputerGraphic2D
                 {
                     if (shapes[i].isSelected(e.X, e.Y))
                     {
+                        selectedShape.Clear();
+                        selectedShape.Add(shapes[i]);
                         selectIndicator.Select(shapes[i]);
                         any = true;
                         break;
