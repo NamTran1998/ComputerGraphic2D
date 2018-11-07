@@ -37,17 +37,14 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.listLayers = new System.Windows.Forms.ListBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel1.SuspendLayout();
+            this.btnText = new System.Windows.Forms.Button();
+            this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.btnSelect);
-            this.panel1.Controls.Add(this.btnCircle);
-            this.panel1.Controls.Add(this.btnRect);
-            this.panel1.Controls.Add(this.btnLine);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -56,7 +53,7 @@
             // 
             // btnSelect
             // 
-            this.btnSelect.Location = new System.Drawing.Point(330, 24);
+            this.btnSelect.Location = new System.Drawing.Point(12, 310);
             this.btnSelect.Name = "btnSelect";
             this.btnSelect.Size = new System.Drawing.Size(75, 23);
             this.btnSelect.TabIndex = 3;
@@ -66,7 +63,7 @@
             // 
             // btnCircle
             // 
-            this.btnCircle.Location = new System.Drawing.Point(224, 24);
+            this.btnCircle.Location = new System.Drawing.Point(12, 64);
             this.btnCircle.Name = "btnCircle";
             this.btnCircle.Size = new System.Drawing.Size(75, 23);
             this.btnCircle.TabIndex = 2;
@@ -76,7 +73,7 @@
             // 
             // btnRect
             // 
-            this.btnRect.Location = new System.Drawing.Point(125, 24);
+            this.btnRect.Location = new System.Drawing.Point(12, 35);
             this.btnRect.Name = "btnRect";
             this.btnRect.Size = new System.Drawing.Size(75, 23);
             this.btnRect.TabIndex = 1;
@@ -86,7 +83,7 @@
             // 
             // btnLine
             // 
-            this.btnLine.Location = new System.Drawing.Point(31, 24);
+            this.btnLine.Location = new System.Drawing.Point(12, 6);
             this.btnLine.Name = "btnLine";
             this.btnLine.Size = new System.Drawing.Size(75, 23);
             this.btnLine.TabIndex = 0;
@@ -96,6 +93,11 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btnSelect);
+            this.panel2.Controls.Add(this.btnLine);
+            this.panel2.Controls.Add(this.btnText);
+            this.panel2.Controls.Add(this.btnRect);
+            this.panel2.Controls.Add(this.btnCircle);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 75);
             this.panel2.Name = "panel2";
@@ -132,6 +134,16 @@
             this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
             this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
             // 
+            // btnText
+            // 
+            this.btnText.Location = new System.Drawing.Point(12, 93);
+            this.btnText.Name = "btnText";
+            this.btnText.Size = new System.Drawing.Size(75, 23);
+            this.btnText.TabIndex = 2;
+            this.btnText.Text = "Text";
+            this.btnText.UseVisualStyleBackColor = true;
+            this.btnText.Click += new System.EventHandler(this.btnText_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -142,7 +154,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "MainForm";
             this.Text = "2D Drawing";
-            this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -160,6 +172,7 @@
         private System.Windows.Forms.Button btnLine;
         private System.Windows.Forms.Button btnCircle;
         private System.Windows.Forms.Button btnSelect;
+        private System.Windows.Forms.Button btnText;
     }
 }
 

@@ -100,8 +100,34 @@ namespace ComputerGraphic2D
                         Circle circle = new Circle(start, end);
                         addShapesToViewPort(circle);
                         break;
+                    case "Text":
+                        TextBox contentTextbox = new TextBox();
+                        contentTextbox.Location = new Point(start.X + pictureBox1.Location.X, start.Y + pictureBox1.Location.Y);
+                        this.Controls.Add(contentTextbox);
+                        this.ActiveControl = contentTextbox;
+                        contentTextbox.BringToFront();
+                        contentTextbox.KeyDown += TextToolEditor_KeyDown;
+                        contentTextbox.LostFocus += TextToolEditor_LostFocus;
+                        break;
                 }
             }
+        }
+
+        private void TextToolEditor_LostFocus(object sender, EventArgs e)
+        {
+            this.Controls.Remove((Control)sender);
+        }
+
+        private void TextToolEditor_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                TextBox textToolEditorTextBox = (TextBox)sender;
+                TextDrawing text = new TextDrawing(start, textToolEditorTextBox.Text);
+                this.Controls.Remove(textToolEditorTextBox);
+                addShapesToViewPort(text);
+            }
+
         }
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
@@ -147,6 +173,11 @@ namespace ComputerGraphic2D
         private void btnSelect_Click(object sender, EventArgs e)
         {
             selectedTool = "Select";
+        }
+
+        private void btnText_Click(object sender, EventArgs e)
+        {
+            selectedTool = "Text";
         }
     }
 }
