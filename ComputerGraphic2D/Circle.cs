@@ -54,7 +54,9 @@ namespace ComputerGraphic2D
 
         public override bool isSelected(int x, int y)
         {
-            //TODO: finish this function
+            if (Math.Sqrt((Center.X - x) * (Center.X - x) + (Center.Y - y) * (Center.Y - y)) <= Radius + 1
+              && Math.Sqrt((Center.X - x) * (Center.X - x) + (Center.Y - y) * (Center.Y - y)) >= Radius - 1)
+                return true;
             return false;
         }
 
