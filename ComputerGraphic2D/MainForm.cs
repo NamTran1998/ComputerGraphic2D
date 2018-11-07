@@ -112,6 +112,10 @@ namespace ComputerGraphic2D
                         Circle circle = new Circle(start, end);
                         addShapesToViewPort(circle);
                         break;
+                    case "Parallelogram":
+                        Parallelogram parallelogram = new Parallelogram(start, end);
+                        addShapesToViewPort(parallelogram);
+                        break;
                     case "Text":
                         TextBox contentTextbox = new TextBox();
                         contentTextbox.Location = new Point(start.X + pictureBox1.Location.X, start.Y + pictureBox1.Location.Y);
@@ -158,6 +162,10 @@ namespace ComputerGraphic2D
                     case "Rectangle":
                         Rectangle rectangle = getRectangle(start, end);
                         drawShapeOnViewPort(rectangle, viewport_tmp);
+                        break;
+                    case "Parallelogram":
+                        Parallelogram parallelogram = new Parallelogram(start, end);
+                        drawShapeOnViewPort(parallelogram, viewport_tmp);
                         break;
                     case "Circle":
                         Circle circle = new Circle(start, end);
@@ -210,6 +218,11 @@ namespace ComputerGraphic2D
             }
             else
                 pictureBox1.Image = viewport;
+        }
+
+        private void btnParallelogram_Click(object sender, EventArgs e)
+        {
+            selectedTool = "Parallelogram";
         }
     }
 }
