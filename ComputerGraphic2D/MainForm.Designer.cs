@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.chkStroke = new System.Windows.Forms.CheckBox();
             this.chkFill = new System.Windows.Forms.CheckBox();
             this.foreColorPicker1 = new ComputerGraphic2D.ForeColorPicker();
             this.backColorPicker1 = new ComputerGraphic2D.BackColorPicker();
@@ -45,7 +44,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.listLayers = new System.Windows.Forms.ListBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnParabol = new System.Windows.Forms.Button();
+            this.chkStroke = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.foreColorPicker1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.backColorPicker1)).BeginInit();
@@ -65,17 +64,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(761, 75);
             this.panel1.TabIndex = 0;
-            // 
-            // chkStroke
-            // 
-            this.chkStroke.AutoSize = true;
-            this.chkStroke.Location = new System.Drawing.Point(569, 15);
-            this.chkStroke.Name = "chkStroke";
-            this.chkStroke.Size = new System.Drawing.Size(57, 17);
-            this.chkStroke.TabIndex = 3;
-            this.chkStroke.Text = "Stroke";
-            this.chkStroke.UseVisualStyleBackColor = true;
-            this.chkStroke.CheckedChanged += new System.EventHandler(this.chkStroke_CheckedChanged);
             // 
             // chkFill
             // 
@@ -149,7 +137,6 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.btnParabol);
             this.panel2.Controls.Add(this.btnEllipse);
             this.panel2.Controls.Add(this.btnParallelogram);
             this.panel2.Controls.Add(this.btnSelect);
@@ -225,15 +212,16 @@
             this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
             this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
             // 
-            // btnParabol
+            // chkStroke
             // 
-            this.btnParabol.Location = new System.Drawing.Point(13, 183);
-            this.btnParabol.Name = "btnParabol";
-            this.btnParabol.Size = new System.Drawing.Size(75, 23);
-            this.btnParabol.TabIndex = 6;
-            this.btnParabol.Text = "Parabol";
-            this.btnParabol.UseVisualStyleBackColor = true;
-            this.btnParabol.Click += new System.EventHandler(this.btnParabol_Click);
+            this.chkStroke.AutoSize = true;
+            this.chkStroke.Location = new System.Drawing.Point(569, 15);
+            this.chkStroke.Name = "chkStroke";
+            this.chkStroke.Size = new System.Drawing.Size(57, 17);
+            this.chkStroke.TabIndex = 3;
+            this.chkStroke.Text = "Stroke";
+            this.chkStroke.UseVisualStyleBackColor = true;
+            this.chkStroke.CheckedChanged += new System.EventHandler(this.chkStroke_CheckedChanged);
             // 
             // MainForm
             // 
@@ -274,7 +262,6 @@
         private ForeColorPicker foreColorPicker1;
         private System.Windows.Forms.CheckBox chkFill;
         private System.Windows.Forms.CheckBox chkStroke;
-        private System.Windows.Forms.Button btnParabol;
     }
 }
 
