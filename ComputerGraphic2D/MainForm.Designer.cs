@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.colorPicker1 = new ComputerGraphic2D.ColorPicker();
             this.btnSelect = new System.Windows.Forms.Button();
             this.btnCircle = new System.Windows.Forms.Button();
             this.btnRect = new System.Windows.Forms.Button();
@@ -38,12 +39,12 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.listLayers = new System.Windows.Forms.ListBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.colorPicker1 = new ComputerGraphic2D.ColorPicker();
+            this.btnParallelogram = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.colorPicker1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.colorPicker1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -54,6 +55,14 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(761, 75);
             this.panel1.TabIndex = 0;
+            // 
+            // colorPicker1
+            // 
+            this.colorPicker1.Location = new System.Drawing.Point(691, 25);
+            this.colorPicker1.Name = "colorPicker1";
+            this.colorPicker1.Size = new System.Drawing.Size(30, 30);
+            this.colorPicker1.TabIndex = 0;
+            this.colorPicker1.TabStop = false;
             // 
             // btnSelect
             // 
@@ -97,6 +106,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btnParallelogram);
             this.panel2.Controls.Add(this.btnSelect);
             this.panel2.Controls.Add(this.btnLine);
             this.panel2.Controls.Add(this.btnText);
@@ -150,13 +160,15 @@
             this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
             this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
             // 
-            // colorPicker1
+            // btnParallelogram
             // 
-            this.colorPicker1.Location = new System.Drawing.Point(691, 25);
-            this.colorPicker1.Name = "colorPicker1";
-            this.colorPicker1.Size = new System.Drawing.Size(30, 30);
-            this.colorPicker1.TabIndex = 0;
-            this.colorPicker1.TabStop = false;
+            this.btnParallelogram.Location = new System.Drawing.Point(12, 123);
+            this.btnParallelogram.Name = "btnParallelogram";
+            this.btnParallelogram.Size = new System.Drawing.Size(75, 23);
+            this.btnParallelogram.TabIndex = 4;
+            this.btnParallelogram.Text = "Parallelogram";
+            this.btnParallelogram.UseVisualStyleBackColor = true;
+            this.btnParallelogram.Click += new System.EventHandler(this.btnParallelogram_Click);
             // 
             // MainForm
             // 
@@ -169,10 +181,10 @@
             this.Name = "MainForm";
             this.Text = "2D Drawing";
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.colorPicker1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.colorPicker1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -190,6 +202,7 @@
         private System.Windows.Forms.Button btnSelect;
         private System.Windows.Forms.Button btnText;
         private ColorPicker colorPicker1;
+        private System.Windows.Forms.Button btnParallelogram;
     }
 }
 
