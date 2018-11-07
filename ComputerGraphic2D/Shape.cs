@@ -11,6 +11,11 @@ namespace ComputerGraphic2D
     {
         public Point Center;
         public Point TopLeft, BottomRight;
+        public Color BackColor = Color.White;
+        public Color ForeColor = Color.Black;
+        public bool bFill = false;
+        public int width = 1;
+
         public string Name { get; set; }
         public Shape()
         {
