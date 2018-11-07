@@ -117,10 +117,6 @@ namespace ComputerGraphic2D
                         Ellipse ellipse = new Ellipse(start, end);
                         addShapesToViewPort(ellipse);
                         break;
-                    case "Parabol":
-                        Parabol parabol = new Parabol(start, end);
-                        addShapesToViewPort(parabol);
-                        break;
                     case "Parallelogram":
                         Parallelogram parallelogram = new Parallelogram(start, end);
                         addShapesToViewPort(parallelogram);
@@ -183,10 +179,6 @@ namespace ComputerGraphic2D
                     case "Ellipse":
                         Ellipse ellipse = new Ellipse(start, end);
                         drawShapeOnViewPort(ellipse, viewport_tmp);
-                        break;
-                    case "Parabol":
-                        Parabol parabol = new Parabol(start, end);
-                        drawShapeOnViewPort(parabol, viewport_tmp);
                         break;
                 }
             }
@@ -270,11 +262,6 @@ namespace ComputerGraphic2D
                 shape.bStroke = chkStroke.Checked;
                 UpdateViewport();
             }
-        }
-
-        private void btnParabol_Click(object sender, EventArgs e)
-        {
-            selectedTool = "Parabol";
         }
     }
 }
