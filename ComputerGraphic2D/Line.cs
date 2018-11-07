@@ -36,6 +36,11 @@ namespace ComputerGraphic2D
 
         public override bool isSelected(int x, int y)
         {
+            for (int i = x - 1; i <= x + 1; i++)
+                for (int j = y - 1; j <= y + 1; j++)
+                    if ((end.X - i) / (end.Y - j) - 1 <= (i - start.X) / (j - start.Y) && (i - start.X) / (j - start.Y) <= (end.X - i) / (end.Y - j) + 1 
+                        && (i - end.X) * (i - start.X) < 0 && (j - end.Y) * (j - start.Y) < 0)
+                        return true;
             return false;
         }
     }
