@@ -25,7 +25,8 @@ namespace ComputerGraphic2D
 
         public override void Draw(Bitmap bitmap)
         {
-            Graphics.FromImage(bitmap).DrawLine(new Pen(Color.Black, 1), start, end);
+            Pen pen = new Pen(ForeColor, 1);
+            Graphics.FromImage(bitmap).DrawLine(pen, start, end);
         }
 
         public override void RegisterAnObject()
