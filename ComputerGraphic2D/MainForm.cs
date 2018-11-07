@@ -25,7 +25,7 @@ namespace ComputerGraphic2D
         private void addShapesToViewPort(Shape shape)
         {            
             shape.RegisterAnObject();
-            shapes.Add(shape);
+            shapes.Insert(0, shape);
             drawShapeOnViewPort(shape, viewport);
         }
 
@@ -54,7 +54,7 @@ namespace ComputerGraphic2D
         public void UpdateViewport()
         {
             viewport = new Bitmap(pictureBox1.Width, pictureBox1.Height);
-            for (int i = 0; i < shapes.Count; i++)
+            for (int i = shapes.Count - 1; i >= 0; i--)
                 shapes[i].Draw(viewport);
             pictureBox1.Image = viewport;
         }
@@ -76,6 +76,9 @@ namespace ComputerGraphic2D
                         selectedShape.Clear();
                         selectedShape.Add(shapes[i]);
                         selectIndicator.Select(shapes[i]);
+
+                        listLayers.ClearSelected();
+                        listLayers.SelectedIndex = i;
                         any = true;
                         break;
                     }
@@ -225,8 +228,8 @@ namespace ComputerGraphic2D
                 selectIndicator.Show(viewport_tmp);
                 pictureBox1.Image = viewport_tmp;
 
-                chkFill.Checked = selectedShape[0].bFill;
-                chkStroke.Checked = selectedShape[0].bStroke;
+                backColorPicker1.Enabled = chkFill.Checked = selectedShape[0].bFill;
+                foreColorPicker1.Enabled = chkStroke.Checked = selectedShape[0].bStroke;
                 foreColorPicker1.changeColor(selectedShape[0].ForeColor);
                 backColorPicker1.changeColor(selectedShape[0].BackColor);
             }
@@ -261,6 +264,74 @@ namespace ComputerGraphic2D
             {
                 shape.bStroke = chkStroke.Checked;
                 UpdateViewport();
+            }
+        }
+
+        private void btnBTF_Click(object sender, EventArgs e)
+        {
+            // Bring to front => selected shape => first
+            if(selectedShape.Count == 1)
+            {
+                Shape selected = selectedShape[0];
+                shapes.Remove(selected);
+                shapes.Insert(0, selected);
+
+                UpdateViewport();
+                listLayers.ClearSelected();
+                listLayers.SelectedIndex = 0;
+            }
+        }
+
+        private void btnBF_Click(object sender, EventArgs e)
+        {
+            // Bring forward         
+            if (selectedShape.Count == 1)
+            {
+                Shape selected = selectedShape[0];
+                listLayers.ClearSelected();
+                int index = shapes.IndexOf(selected);
+                if (index == 0)
+                    return;
+                shapes[index] = shapes[index - 1];
+                shapes[index - 1] = selected;
+
+                UpdateViewport();
+                listLayers.ClearSelected();
+                listLayers.SelectedIndex = index - 1;
+            }
+        }
+
+        private void btnSB_Click(object sender, EventArgs e)
+        {
+            // Send backward
+            if (selectedShape.Count == 1)
+            {
+                Shape selected = selectedShape[0];
+                listLayers.ClearSelected();
+                int index = shapes.IndexOf(selected);
+                if (index == shapes.Count - 1)
+                    return;
+                shapes[index] = shapes[index + 1];
+                shapes[index + 1] = selected;
+
+                UpdateViewport();
+                listLayers.ClearSelected();
+                listLayers.SelectedIndex = index + 1;
+            }
+        }
+
+        private void btnSTB_Click(object sender, EventArgs e)
+        {
+            // Send to back
+            if (selectedShape.Count == 1)
+            {
+                Shape selected = selectedShape[0];
+                shapes.Remove(selected);
+                shapes.Add(selected);
+
+                UpdateViewport();
+                listLayers.ClearSelected();
+                listLayers.SelectedIndex = shapes.Count - 1;
             }
         }
     }

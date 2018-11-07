@@ -16,6 +16,7 @@ namespace ComputerGraphic2D
         public bool bFill = false;
         public bool bStroke = true;
         public int width = 1;
+        public System.Drawing.Drawing2D.DashStyle strokeStyle = System.Drawing.Drawing2D.DashStyle.Solid;
 
         public string Name { get; set; }
         public Shape()

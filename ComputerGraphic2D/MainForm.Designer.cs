@@ -30,9 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.chkStroke = new System.Windows.Forms.CheckBox();
             this.chkFill = new System.Windows.Forms.CheckBox();
-            this.foreColorPicker1 = new ComputerGraphic2D.ForeColorPicker();
-            this.backColorPicker1 = new ComputerGraphic2D.BackColorPicker();
             this.btnSelect = new System.Windows.Forms.Button();
             this.btnCircle = new System.Windows.Forms.Button();
             this.btnRect = new System.Windows.Forms.Button();
@@ -44,13 +43,18 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.listLayers = new System.Windows.Forms.ListBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.chkStroke = new System.Windows.Forms.CheckBox();
+            this.btnBTF = new System.Windows.Forms.Button();
+            this.btnBF = new System.Windows.Forms.Button();
+            this.btnSB = new System.Windows.Forms.Button();
+            this.btnSTB = new System.Windows.Forms.Button();
+            this.foreColorPicker1 = new ComputerGraphic2D.ForeColorPicker();
+            this.backColorPicker1 = new ComputerGraphic2D.BackColorPicker();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.foreColorPicker1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.backColorPicker1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.foreColorPicker1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.backColorPicker1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -65,6 +69,17 @@
             this.panel1.Size = new System.Drawing.Size(761, 75);
             this.panel1.TabIndex = 0;
             // 
+            // chkStroke
+            // 
+            this.chkStroke.AutoSize = true;
+            this.chkStroke.Location = new System.Drawing.Point(569, 15);
+            this.chkStroke.Name = "chkStroke";
+            this.chkStroke.Size = new System.Drawing.Size(57, 17);
+            this.chkStroke.TabIndex = 3;
+            this.chkStroke.Text = "Stroke";
+            this.chkStroke.UseVisualStyleBackColor = true;
+            this.chkStroke.CheckedChanged += new System.EventHandler(this.chkStroke_CheckedChanged);
+            // 
             // chkFill
             // 
             this.chkFill.AutoSize = true;
@@ -75,25 +90,6 @@
             this.chkFill.Text = "Fill";
             this.chkFill.UseVisualStyleBackColor = true;
             this.chkFill.CheckedChanged += new System.EventHandler(this.chkFill_CheckedChanged);
-            // 
-            // foreColorPicker1
-            // 
-            this.foreColorPicker1.Image = ((System.Drawing.Image)(resources.GetObject("foreColorPicker1.Image")));
-            this.foreColorPicker1.Location = new System.Drawing.Point(684, 25);
-            this.foreColorPicker1.Name = "foreColorPicker1";
-            this.foreColorPicker1.Size = new System.Drawing.Size(30, 30);
-            this.foreColorPicker1.TabIndex = 2;
-            this.foreColorPicker1.TabStop = false;
-            // 
-            // backColorPicker1
-            // 
-            this.backColorPicker1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.backColorPicker1.Image = ((System.Drawing.Image)(resources.GetObject("backColorPicker1.Image")));
-            this.backColorPicker1.Location = new System.Drawing.Point(637, 25);
-            this.backColorPicker1.Name = "backColorPicker1";
-            this.backColorPicker1.Size = new System.Drawing.Size(30, 30);
-            this.backColorPicker1.TabIndex = 1;
-            this.backColorPicker1.TabStop = false;
             // 
             // btnSelect
             // 
@@ -182,6 +178,10 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.btnSTB);
+            this.panel3.Controls.Add(this.btnSB);
+            this.panel3.Controls.Add(this.btnBF);
+            this.panel3.Controls.Add(this.btnBTF);
             this.panel3.Controls.Add(this.listLayers);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel3.Location = new System.Drawing.Point(593, 75);
@@ -191,12 +191,12 @@
             // 
             // listLayers
             // 
-            this.listLayers.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listLayers.Dock = System.Windows.Forms.DockStyle.Right;
             this.listLayers.FormattingEnabled = true;
-            this.listLayers.Location = new System.Drawing.Point(0, 0);
+            this.listLayers.Location = new System.Drawing.Point(44, 0);
             this.listLayers.Name = "listLayers";
             this.listLayers.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.listLayers.Size = new System.Drawing.Size(168, 360);
+            this.listLayers.Size = new System.Drawing.Size(124, 360);
             this.listLayers.TabIndex = 0;
             this.listLayers.SelectedValueChanged += new System.EventHandler(this.listLayers_SelectedValueChanged);
             // 
@@ -212,16 +212,64 @@
             this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
             this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
             // 
-            // chkStroke
+            // btnBTF
             // 
-            this.chkStroke.AutoSize = true;
-            this.chkStroke.Location = new System.Drawing.Point(569, 15);
-            this.chkStroke.Name = "chkStroke";
-            this.chkStroke.Size = new System.Drawing.Size(57, 17);
-            this.chkStroke.TabIndex = 3;
-            this.chkStroke.Text = "Stroke";
-            this.chkStroke.UseVisualStyleBackColor = true;
-            this.chkStroke.CheckedChanged += new System.EventHandler(this.chkStroke_CheckedChanged);
+            this.btnBTF.Location = new System.Drawing.Point(6, 64);
+            this.btnBTF.Name = "btnBTF";
+            this.btnBTF.Size = new System.Drawing.Size(32, 44);
+            this.btnBTF.TabIndex = 1;
+            this.btnBTF.Text = "^\r\n^";
+            this.btnBTF.UseVisualStyleBackColor = true;
+            this.btnBTF.Click += new System.EventHandler(this.btnBTF_Click);
+            // 
+            // btnBF
+            // 
+            this.btnBF.Location = new System.Drawing.Point(6, 114);
+            this.btnBF.Name = "btnBF";
+            this.btnBF.Size = new System.Drawing.Size(32, 44);
+            this.btnBF.TabIndex = 1;
+            this.btnBF.Text = "^";
+            this.btnBF.UseVisualStyleBackColor = true;
+            this.btnBF.Click += new System.EventHandler(this.btnBF_Click);
+            // 
+            // btnSB
+            // 
+            this.btnSB.Location = new System.Drawing.Point(6, 164);
+            this.btnSB.Name = "btnSB";
+            this.btnSB.Size = new System.Drawing.Size(32, 44);
+            this.btnSB.TabIndex = 1;
+            this.btnSB.Text = "v";
+            this.btnSB.UseVisualStyleBackColor = true;
+            this.btnSB.Click += new System.EventHandler(this.btnSB_Click);
+            // 
+            // btnSTB
+            // 
+            this.btnSTB.Location = new System.Drawing.Point(6, 214);
+            this.btnSTB.Name = "btnSTB";
+            this.btnSTB.Size = new System.Drawing.Size(32, 44);
+            this.btnSTB.TabIndex = 1;
+            this.btnSTB.Text = "v\r\nv";
+            this.btnSTB.UseVisualStyleBackColor = true;
+            this.btnSTB.Click += new System.EventHandler(this.btnSTB_Click);
+            // 
+            // foreColorPicker1
+            // 
+            this.foreColorPicker1.Image = ((System.Drawing.Image)(resources.GetObject("foreColorPicker1.Image")));
+            this.foreColorPicker1.Location = new System.Drawing.Point(684, 25);
+            this.foreColorPicker1.Name = "foreColorPicker1";
+            this.foreColorPicker1.Size = new System.Drawing.Size(30, 30);
+            this.foreColorPicker1.TabIndex = 2;
+            this.foreColorPicker1.TabStop = false;
+            // 
+            // backColorPicker1
+            // 
+            this.backColorPicker1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.backColorPicker1.Image = ((System.Drawing.Image)(resources.GetObject("backColorPicker1.Image")));
+            this.backColorPicker1.Location = new System.Drawing.Point(637, 25);
+            this.backColorPicker1.Name = "backColorPicker1";
+            this.backColorPicker1.Size = new System.Drawing.Size(30, 30);
+            this.backColorPicker1.TabIndex = 1;
+            this.backColorPicker1.TabStop = false;
             // 
             // MainForm
             // 
@@ -235,11 +283,11 @@
             this.Text = "2D Drawing";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.foreColorPicker1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.backColorPicker1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.foreColorPicker1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.backColorPicker1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -262,6 +310,10 @@
         private ForeColorPicker foreColorPicker1;
         private System.Windows.Forms.CheckBox chkFill;
         private System.Windows.Forms.CheckBox chkStroke;
+        private System.Windows.Forms.Button btnSTB;
+        private System.Windows.Forms.Button btnSB;
+        private System.Windows.Forms.Button btnBF;
+        private System.Windows.Forms.Button btnBTF;
     }
 }
 

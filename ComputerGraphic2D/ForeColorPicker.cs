@@ -45,6 +45,8 @@ namespace ComputerGraphic2D
 
         private void ColorPicker_Click(object sender, EventArgs e)
         {
+            if (!((ForeColorPicker)sender).Enabled)
+                return;
             ColorDialog colorDialog = new ColorDialog();
             if(colorDialog.ShowDialog() == DialogResult.OK)
             {

@@ -28,6 +28,7 @@ namespace ComputerGraphic2D
         private void Stroke(Bitmap bitmap)
         {
             Pen pen = new Pen(ForeColor, width);
+            pen.DashStyle = strokeStyle;
             Graphics.FromImage(bitmap).DrawRectangle(pen, TopLeft.X, TopLeft.Y, BottomRight.X - TopLeft.X, BottomRight.Y - TopLeft.Y);
         }
 
