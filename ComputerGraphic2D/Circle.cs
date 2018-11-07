@@ -68,7 +68,7 @@ namespace ComputerGraphic2D
             int minD = absDx < absDy ? absDx : absDy;
 
             // From left to right
-            if(d.X > 0)
+            if (d.X > 0)
             {
                 TopLeft.X = Start.X;
                 BottomRight.X = TopLeft.X + minD;
@@ -80,7 +80,7 @@ namespace ComputerGraphic2D
             }
 
             // From top to bottom
-            if(d.Y > 0)
+            if (d.Y > 0)
             {
                 TopLeft.Y = Start.Y;
                 BottomRight.Y = TopLeft.Y + minD;

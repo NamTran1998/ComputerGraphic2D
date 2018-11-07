@@ -43,6 +43,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.listLayers = new System.Windows.Forms.ListBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnEllipse = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.foreColorPicker1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.backColorPicker1)).BeginInit();
@@ -134,6 +135,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btnEllipse);
             this.panel2.Controls.Add(this.btnParallelogram);
             this.panel2.Controls.Add(this.btnSelect);
             this.panel2.Controls.Add(this.btnLine);
@@ -198,6 +200,16 @@
             this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
             this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
             // 
+            // btnEllipse
+            // 
+            this.btnEllipse.Location = new System.Drawing.Point(13, 153);
+            this.btnEllipse.Name = "btnEllipse";
+            this.btnEllipse.Size = new System.Drawing.Size(75, 23);
+            this.btnEllipse.TabIndex = 5;
+            this.btnEllipse.Text = "Ellipse";
+            this.btnEllipse.UseVisualStyleBackColor = true;
+            this.btnEllipse.Click += new System.EventHandler(this.btnEllipse_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -232,6 +244,7 @@
         private System.Windows.Forms.Button btnSelect;
         private System.Windows.Forms.Button btnText;
         private System.Windows.Forms.Button btnParallelogram;
+        private System.Windows.Forms.Button btnEllipse;
         private BackColorPicker backColorPicker1;
         private ForeColorPicker foreColorPicker1;
         private System.Windows.Forms.CheckBox chkFill;
