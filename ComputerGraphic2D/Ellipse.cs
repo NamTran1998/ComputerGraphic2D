@@ -36,6 +36,12 @@ namespace ComputerGraphic2D
         {
             if (bFill)
                 Fill(bitmap);
+            if (bStroke)
+                Stroke(bitmap);
+        }
+
+        private void Stroke(Bitmap bitmap)
+        {
             Pen pen = new Pen(ForeColor, width);
             Graphics.FromImage(bitmap).DrawEllipse(pen, TopLeft.X, TopLeft.Y, A * 2, B * 2);
         }

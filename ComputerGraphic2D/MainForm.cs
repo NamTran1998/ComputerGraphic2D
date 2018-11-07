@@ -226,6 +226,7 @@ namespace ComputerGraphic2D
                 pictureBox1.Image = viewport_tmp;
 
                 chkFill.Checked = selectedShape[0].bFill;
+                chkStroke.Checked = selectedShape[0].bStroke;
                 foreColorPicker1.changeColor(selectedShape[0].ForeColor);
                 backColorPicker1.changeColor(selectedShape[0].BackColor);
             }
@@ -249,6 +250,16 @@ namespace ComputerGraphic2D
             foreach(Shape shape in selectedShape)
             {
                 shape.bFill = chkFill.Checked;
+                UpdateViewport();
+            }
+        }
+
+        private void chkStroke_CheckedChanged(object sender, EventArgs e)
+        {
+            foreColorPicker1.Enabled = chkStroke.Checked;
+            foreach (Shape shape in selectedShape)
+            {
+                shape.bStroke = chkStroke.Checked;
                 UpdateViewport();
             }
         }

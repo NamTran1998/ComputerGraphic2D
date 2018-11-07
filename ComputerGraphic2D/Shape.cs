@@ -14,6 +14,7 @@ namespace ComputerGraphic2D
         public Color BackColor = Color.White;
         public Color ForeColor = Color.Black;
         public bool bFill = false;
+        public bool bStroke = true;
         public int width = 1;
 
         public string Name { get; set; }

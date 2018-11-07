@@ -21,6 +21,12 @@ namespace ComputerGraphic2D
         {
             if (bFill)
                 Fill(bitmap);
+            if (bStroke)
+                Stroke(bitmap);
+        }
+
+        private void Stroke(Bitmap bitmap)
+        {
             Pen pen = new Pen(ForeColor, width);
             Graphics.FromImage(bitmap).DrawRectangle(pen, TopLeft.X, TopLeft.Y, BottomRight.X - TopLeft.X, BottomRight.Y - TopLeft.Y);
         }

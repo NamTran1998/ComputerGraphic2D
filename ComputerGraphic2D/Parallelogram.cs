@@ -67,9 +67,16 @@ namespace ComputerGraphic2D
         {
             if (bFill)
                 Fill(bitmap);
+            if (bStroke)
+                Stroke(bitmap);
+        }
+
+        private void Stroke(Bitmap bitmap)
+        {            
             Pen pen = new Pen(ForeColor, 1);
             Graphics.FromImage(bitmap).DrawPolygon(pen, pointArray);
         }
+
         public void Fill(Bitmap bitmap)
         {
             SolidBrush brush = new SolidBrush(BackColor);
