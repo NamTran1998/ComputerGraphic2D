@@ -42,14 +42,18 @@ namespace ComputerGraphic2D
 
             int r = 2;
             Circle[] controls =
-            {
+            {                
                 new Circle(new Point(xmin, ymin), r),
                 new Circle(new Point(xmin, ymax), r),
                 new Circle(new Point(xmax, ymin), r),
                 new Circle(new Point(xmax, ymax), r)
             };
 
-            for(int i = 0; i < 4; i++)
+            Rectangle rectangle = new Rectangle(new Point(xmin, ymin), new Point(xmax, ymax));
+            rectangle.strokeStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            rectangle.Draw(bitmap);
+
+            for (int i = 0; i < 4; i++)
             {
                 controls[i].Fill(bitmap);
                 controls[i].Draw(bitmap);
