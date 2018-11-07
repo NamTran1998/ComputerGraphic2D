@@ -38,7 +38,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.listLayers = new System.Windows.Forms.ListBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.colorPicker1 = new ComputerGraphic2D.ColorPicker();
+            this.colorPicker1 = new ComputerGraphic2D.ForeColorPicker();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -152,6 +152,7 @@
             // 
             // colorPicker1
             // 
+            this.colorPicker1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.colorPicker1.Location = new System.Drawing.Point(691, 25);
             this.colorPicker1.Name = "colorPicker1";
             this.colorPicker1.Size = new System.Drawing.Size(30, 30);
@@ -189,7 +190,7 @@
         private System.Windows.Forms.Button btnCircle;
         private System.Windows.Forms.Button btnSelect;
         private System.Windows.Forms.Button btnText;
-        private ColorPicker colorPicker1;
+        private ForeColorPicker colorPicker1;
     }
 }
 
