@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnSelect = new System.Windows.Forms.Button();
+            this.btnCircle = new System.Windows.Forms.Button();
             this.btnRect = new System.Windows.Forms.Button();
             this.btnLine = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.listLayers = new System.Windows.Forms.ListBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnCircle = new System.Windows.Forms.Button();
-            this.btnSelect = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -54,13 +54,33 @@
             this.panel1.Size = new System.Drawing.Size(761, 75);
             this.panel1.TabIndex = 0;
             // 
+            // btnSelect
+            // 
+            this.btnSelect.Location = new System.Drawing.Point(330, 24);
+            this.btnSelect.Name = "btnSelect";
+            this.btnSelect.Size = new System.Drawing.Size(75, 23);
+            this.btnSelect.TabIndex = 3;
+            this.btnSelect.Text = "Select";
+            this.btnSelect.UseVisualStyleBackColor = true;
+            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
+            // 
+            // btnCircle
+            // 
+            this.btnCircle.Location = new System.Drawing.Point(224, 24);
+            this.btnCircle.Name = "btnCircle";
+            this.btnCircle.Size = new System.Drawing.Size(75, 23);
+            this.btnCircle.TabIndex = 2;
+            this.btnCircle.Text = "Circle";
+            this.btnCircle.UseVisualStyleBackColor = true;
+            this.btnCircle.Click += new System.EventHandler(this.btnCircle_Click);
+            // 
             // btnRect
             // 
             this.btnRect.Location = new System.Drawing.Point(125, 24);
             this.btnRect.Name = "btnRect";
             this.btnRect.Size = new System.Drawing.Size(75, 23);
             this.btnRect.TabIndex = 1;
-            this.btnRect.Text = "button2";
+            this.btnRect.Text = "Rectangle";
             this.btnRect.UseVisualStyleBackColor = true;
             this.btnRect.Click += new System.EventHandler(this.btnRect_Click);
             // 
@@ -70,7 +90,7 @@
             this.btnLine.Name = "btnLine";
             this.btnLine.Size = new System.Drawing.Size(75, 23);
             this.btnLine.TabIndex = 0;
-            this.btnLine.Text = "button1";
+            this.btnLine.Text = "Line";
             this.btnLine.UseVisualStyleBackColor = true;
             this.btnLine.Click += new System.EventHandler(this.btnLine_Click);
             // 
@@ -111,26 +131,6 @@
             this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
             this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
             this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
-            // 
-            // btnCircle
-            // 
-            this.btnCircle.Location = new System.Drawing.Point(224, 24);
-            this.btnCircle.Name = "btnCircle";
-            this.btnCircle.Size = new System.Drawing.Size(75, 23);
-            this.btnCircle.TabIndex = 2;
-            this.btnCircle.Text = "button1";
-            this.btnCircle.UseVisualStyleBackColor = true;
-            this.btnCircle.Click += new System.EventHandler(this.btnCircle_Click);
-            // 
-            // btnSelect
-            // 
-            this.btnSelect.Location = new System.Drawing.Point(330, 24);
-            this.btnSelect.Name = "btnSelect";
-            this.btnSelect.Size = new System.Drawing.Size(75, 23);
-            this.btnSelect.TabIndex = 3;
-            this.btnSelect.Text = "button1";
-            this.btnSelect.UseVisualStyleBackColor = true;
-            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
             // 
             // MainForm
             // 

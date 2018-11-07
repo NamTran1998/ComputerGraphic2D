@@ -30,14 +30,18 @@ namespace ComputerGraphic2D
 
         public override bool isSelected(int x, int y)
         {
-            if (x == TopLeft.X && y < BottomRight.Y && y > TopLeft.Y)
-                return true;
-            if (x == BottomRight.X && y < BottomRight.Y && y > TopLeft.Y)
-                return true;
-            if (y == TopLeft.Y && x < BottomRight.X && x > TopLeft.X)
-                return true;
-            if (y == BottomRight.Y && x < BottomRight.X && x > TopLeft.X)
-                return true;
+            if (y < BottomRight.Y && y > TopLeft.Y)
+                if (x < TopLeft.X + 2 && x > TopLeft.X - 2)
+                    return true;
+            if (y < BottomRight.Y && y > TopLeft.Y)
+                if (x < BottomRight.X + 2 && x > BottomRight.X - 2)
+                    return true;
+            if (x < BottomRight.X && x > TopLeft.X)
+                if (y < TopLeft.Y + 2 && y > TopLeft.Y - 2)
+                    return true;
+            if (x < BottomRight.X && x > TopLeft.X)
+                if (y < BottomRight.Y + 2 && y > BottomRight.Y - 2)
+                    return true;
 
             return false;
         }
