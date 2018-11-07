@@ -241,6 +241,8 @@ namespace ComputerGraphic2D
         private void btnEllipse_Click(object sender, EventArgs e)
         {
             selectedTool = "Ellipse";
+        }
+
         private void chkFill_CheckedChanged(object sender, EventArgs e)
         {
             backColorPicker1.Enabled = chkFill.Checked;
