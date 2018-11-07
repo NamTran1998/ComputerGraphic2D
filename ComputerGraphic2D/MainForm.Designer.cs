@@ -38,12 +38,13 @@
             this.btnRect = new System.Windows.Forms.Button();
             this.btnLine = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnEllipse = new System.Windows.Forms.Button();
             this.btnParallelogram = new System.Windows.Forms.Button();
             this.btnText = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.listLayers = new System.Windows.Forms.ListBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnEllipse = new System.Windows.Forms.Button();
+            this.chkStroke = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.foreColorPicker1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.backColorPicker1)).BeginInit();
@@ -54,6 +55,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.chkStroke);
             this.panel1.Controls.Add(this.chkFill);
             this.panel1.Controls.Add(this.foreColorPicker1);
             this.panel1.Controls.Add(this.backColorPicker1);
@@ -148,6 +150,16 @@
             this.panel2.Size = new System.Drawing.Size(102, 360);
             this.panel2.TabIndex = 1;
             // 
+            // btnEllipse
+            // 
+            this.btnEllipse.Location = new System.Drawing.Point(13, 153);
+            this.btnEllipse.Name = "btnEllipse";
+            this.btnEllipse.Size = new System.Drawing.Size(75, 23);
+            this.btnEllipse.TabIndex = 5;
+            this.btnEllipse.Text = "Ellipse";
+            this.btnEllipse.UseVisualStyleBackColor = true;
+            this.btnEllipse.Click += new System.EventHandler(this.btnEllipse_Click);
+            // 
             // btnParallelogram
             // 
             this.btnParallelogram.Location = new System.Drawing.Point(12, 123);
@@ -200,15 +212,16 @@
             this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
             this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
             // 
-            // btnEllipse
+            // chkStroke
             // 
-            this.btnEllipse.Location = new System.Drawing.Point(13, 153);
-            this.btnEllipse.Name = "btnEllipse";
-            this.btnEllipse.Size = new System.Drawing.Size(75, 23);
-            this.btnEllipse.TabIndex = 5;
-            this.btnEllipse.Text = "Ellipse";
-            this.btnEllipse.UseVisualStyleBackColor = true;
-            this.btnEllipse.Click += new System.EventHandler(this.btnEllipse_Click);
+            this.chkStroke.AutoSize = true;
+            this.chkStroke.Location = new System.Drawing.Point(569, 15);
+            this.chkStroke.Name = "chkStroke";
+            this.chkStroke.Size = new System.Drawing.Size(57, 17);
+            this.chkStroke.TabIndex = 3;
+            this.chkStroke.Text = "Stroke";
+            this.chkStroke.UseVisualStyleBackColor = true;
+            this.chkStroke.CheckedChanged += new System.EventHandler(this.chkStroke_CheckedChanged);
             // 
             // MainForm
             // 
@@ -248,6 +261,7 @@
         private BackColorPicker backColorPicker1;
         private ForeColorPicker foreColorPicker1;
         private System.Windows.Forms.CheckBox chkFill;
+        private System.Windows.Forms.CheckBox chkStroke;
     }
 }
 
